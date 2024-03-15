@@ -43,13 +43,13 @@ class PyprojectInitializer:
         """
         Create a library project
         """
-        files.create_lib_files(self.project_name, self.license)
+        files.create_lib_files(self.project_name)
     
     def create_app_project(self):
         """
         Create an application project
         """
-        files.create_app_files(self.project_name, self.license)
+        files.create_app_files(self.project_name)
 
     def init_git(self):
         """

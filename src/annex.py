@@ -21,5 +21,16 @@ def init_git(project_name):
     os.system("git init " + project_name)
     print("Git repository initialized")
 
-def create_base_files(project_name):
+def init_docker():
+    """
+    init_docker initialize a docker environment for the project
+    """
+    print("Creating Dockerfile")
+    os.system("touch Dockerfile")
+    print("Dockerfile created")
+
+def writing_license(license, project_name):
+    """
+    writing_license write the license in the LICENSE file
+    """
     
