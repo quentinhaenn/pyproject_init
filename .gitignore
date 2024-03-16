@@ -1,2 +1,10 @@
 # Config files
 .DS_Store
+
+# pytest cache
+__pycache__/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
