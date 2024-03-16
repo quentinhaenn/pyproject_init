@@ -14,7 +14,7 @@ This is a simple python project initializer. It creates any file and directory s
 - [ ] add documentation
 - [x] add pyproject.toml file
 - [x] wrap the whole thing in a package
-- [ ] publish the package on pypi
+- [x] publish the package on pypi
 - [x] add a command line interface
 - [ ] test it vanilla
 
