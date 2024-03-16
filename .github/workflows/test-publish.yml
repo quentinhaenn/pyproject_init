@@ -1,5 +1,9 @@
-  publish-to-testpypi:
-    name: Publish Python 🐍 distribution 📦 to TestPyPI
+name: Publish Python 🐍 distribution 📦 to TestPyPI
+
+on: push
+
+jobs:
+  build:
     needs:
     - build
     runs-on: ubuntu-latest
