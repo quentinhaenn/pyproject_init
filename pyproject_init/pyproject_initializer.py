@@ -5,13 +5,26 @@ This file provide the main class for the pyproject initializer.
 import os
 import subprocess
 
-from pyprojectinit.utils import projectfiles as files, pythonfiles as pyfiles
+from pyproject_init.utils import projectfiles as files, pythonfiles as pyfiles
+
 
 class PyprojectInitializer:
 
-    def __init__(self, project_name, project_root, project_type,setuppy_needed=False, setupcfg_needed = False, pyproject_needed = False,git_needed = False, virtualenv_needed = False, docker_needed = False,license = "MIT"):
+    def __init__(
+        self,
+        project_name,
+        project_root,
+        project_type,
+        setuppy_needed=False,
+        setupcfg_needed=False,
+        pyproject_needed=False,
+        git_needed=False,
+        virtualenv_needed=False,
+        docker_needed=False,
+        license="MIT",
+    ):
         self.project_name = project_name
-        self.project_root = project_root #os.getcwd()
+        self.project_root = project_root  # os.getcwd()
         self.project_path = os.path.join(self.project_root, self.project_name)
         self.project_type = project_type
         self.setuppy = setuppy_needed
@@ -32,7 +45,7 @@ class PyprojectInitializer:
         elif self.project_type == "app":
             self.create_app_project()
 
-        if self.git :
+        if self.git:
             self.init_git()
 
         if self.virtualenv:
@@ -52,19 +65,19 @@ class PyprojectInitializer:
         Create an application project
         """
         pyfiles.create_app(self.project_path)
-    
+
     def init_git(self):
         """
         Initialize the git repository
         """
         subprocess.run(["git", "init"], cwd=self.project_root)
-    
+
     def init_virtualenv(self):
         """
         Initialize the virtual environment
         """
         subprocess.run(["python3", "-m", "venv", self.project_name + "-env"], cwd=self.project_root)
-    
+
     def init_docker(self):
         """
         Create a base Dockerfile

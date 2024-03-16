@@ -1,0 +1,49 @@
+[project]
+name = "pyproject_init"
+requires-python = ">=3.9"
+dependencies = [
+    "click",
+]
+authors = [
+    {name = "Quentin Haenn", email = "quentin.haenn.pro@gmail.com"},
+]
+description = "A tool to initialize a python project with all basic files and configurations"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["python project init", "project init", "python project", "project"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Repository = "https://github.com/quentinhaenn/pyproject_init"
+
+
+[tool.flake8]
+exclude = [
+    "__init__.py",
+    ".pytest_cache",
+    ".git",
+    "src/pyprojectinit/test/",
+    ]
+filename = "*.py"
+count = true
+max-line-length = 120
+
+[tool.black]
+line-length = 120
+target-version = ['py39', "py310", "py311","py312"]
+
+
+[tool.pylint.MASTER]
+ignore-paths = [
+    "^src/pyprojectinit/test/"
+]
+max-line-length = 120

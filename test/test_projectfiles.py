@@ -1,12 +1,13 @@
 import pytest
 import os
 
-from pyprojectinit.utils import projectfiles as pfiles
+from pyproject_init.utils import projectfiles as pfiles
 
-class TestProjectFiles():
+
+class TestProjectFiles:
     def test_create_readme(self, tmp_path):
         pfiles._create_readme(str(tmp_path))
-        readme_path = os.path.join(tmp_path,"README.md")
+        readme_path = os.path.join(tmp_path, "README.md")
         assert os.path.isfile(readme_path)
         with open(readme_path, "r") as readme:
             content = readme.read()
@@ -51,8 +52,8 @@ class TestProjectFiles():
             content = license.read()
             assert "MIT License" in content
             assert "Permission is hereby granted, free of charge, to any person obtaining a copy" in content
-            assert "of this software and associated documentation files (the \"Software\"), to deal" in content
-    
+            assert 'of this software and associated documentation files (the "Software"), to deal' in content
+
     def test_create_setupcfg(self, tmp_path):
         pfiles._create_setupcfg(str(tmp_path), "MIT")
         setupcfg_path = os.path.join(tmp_path, "setup.cfg")
@@ -69,7 +70,7 @@ class TestProjectFiles():
             assert "long_description_content_type = text/markdown\n" in content
             assert "url = " in content
             assert "license = MIT\n" in content
-            
+
     def test_create_setuppy(self, tmp_path):
         pfiles._create_setuppy(str(tmp_path), "MIT")
         setuppy_path = os.path.join(tmp_path, "setup.py")
@@ -77,7 +78,7 @@ class TestProjectFiles():
         with open(setuppy_path, "r") as setuppy:
             content = setuppy.read()
             assert "import setuptools\n" in content
-            assert "with open(\"README.md\", \"r\") as fh:\n" in content
+            assert 'with open("README.md", "r") as fh:\n' in content
             assert "long_description = fh.read()\n" in content
             assert "setup(\n" in content
             assert "name=" in content
@@ -95,9 +96,9 @@ class TestProjectFiles():
         with open(pyproject_path, "r") as pyproject:
             content = pyproject.read()
             assert "[build-system]\n" in content
-            assert "requires = [\"setuptools\", \"wheel\"]\n" in content
-            assert "build-backend = \"setuptools.build_meta\"\n" in content
-    
+            assert 'requires = ["setuptools", "wheel"]\n' in content
+            assert 'build-backend = "setuptools.build_meta"\n' in content
+
     def test_create_base_files(self, tmp_path):
         pfiles.create_base_files(str(tmp_path), "MIT", True, True, True)
         assert os.path.isfile(os.path.join(tmp_path, "README.md"))

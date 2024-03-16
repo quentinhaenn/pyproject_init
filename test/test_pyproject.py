@@ -2,9 +2,10 @@ import pytest
 import os
 import subprocess
 
-from pyprojectinit.pyproject_initializer import PyprojectInitializer
+from pyproject_init.pyproject_initializer import PyprojectInitializer
 
-class TestPyprojectInitializer():
+
+class TestPyprojectInitializer:
     def test_init(self, tmp_path):
         py_test = PyprojectInitializer("test_project", str(tmp_path), "lib", True, True, True, True, True, True, "MIT")
         assert py_test.project_name == "test_project"
