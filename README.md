@@ -16,7 +16,14 @@ This is a simple python project initializer. It creates any file and directory s
 - [x] wrap the whole thing in a package
 - [x] publish the package on pypi
 - [x] add a command line interface
-- [ ] test it vanilla
+- [x] test it vanilla
+- [ ] Change options setuppy and setupcfg to setup
+- [ ] Change options pyproject to make setup a flag. If setup is true, then create setup.py and setup.cfg. If setup is false, then create pyproject.toml
+- [ ] Refactor a bit to make the code more readable
+- [ ] Cut the code into smaller functions if possible
+- [ ] Add skeleton template for setup.py, setup.cfg, and pyproject.toml with flake8, black and pylint
+- [ ] Add pytest to the skeleton template as a dev dependency
+
 
 ## DESCRIPTION
 
