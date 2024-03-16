@@ -38,44 +38,42 @@ def cli():
 
 
 @cli.command()
-@click.option("--setuppy", is_flag=True, help="Create a setup.py file")
-@click.option("--setupcfg", is_flag=True, help="Create a setup.cfg file")
-@click.option("--pyproject", is_flag=True, help="Create a pyproject.toml file")
+@click.option("--setup", is_flag=True, help="If set, create a setup.py and a setup.cfg file, if not creates pyproject.toml")
 @click.option("--git", is_flag=True, help="Initialize a git repository")
 @click.option("--virtualenv", is_flag=True, help="Create a virtualenv")
 @click.option("--docker", is_flag=True, help="Create a docker file")
 @click.option("--license", default="MIT", help="Choose the license type")
 @click.argument("project_name", required=True)
-def lib(setuppy, setupcfg, pyproject, git, virtualenv, docker, license, project_name):
+def lib(setup, git, virtualenv, docker, license, project_name):
     """
     Create a library project
     """
     echo("Creating a library project")
     project_root = os.getcwd()
     initializer = PyprojectInitializer(
-        project_name, project_root, "lib", setuppy, setupcfg, pyproject, git, virtualenv, docker, license
+        project_name, project_root, "lib", setup, git, virtualenv, docker, license
     )
     initializer.init()
     echo("Library project created")
 
 
 @cli.command()
-@click.option("--setuppy", is_flag=True, help="Create a setup.py file")
-@click.option("--setupcfg", is_flag=True, help="Create a setup.cfg file")
-@click.option("--pyproject", is_flag=True, help="Create a pyproject.toml file")
+@click.option("--setup",
+              is_flag=True,
+              help="If set, create a setup.py and a setup.cfg file, if not creates pyproject.toml")
 @click.option("--git", is_flag=True, help="Initialize a git repository")
 @click.option("--virtualenv", is_flag=True, help="Create a virtualenv")
 @click.option("--docker", is_flag=True, help="Create a docker file")
 @click.option("--license", default="MIT", help="Choose the license type")
 @click.argument("project_name", required=True)
-def app(setuppy, setupcfg, pyproject, git, virtualenv, docker, license, project_name):
+def app(setup, git, virtualenv, docker, license, project_name):
     """
     Create an application project
     """
     echo("Creating an application project")
     project_root = os.getcwd()
     initializer = PyprojectInitializer(
-        project_name, project_root, "app", setuppy, setupcfg, pyproject, git, virtualenv, docker, license
+        project_name, project_root, "app", setup, git, virtualenv, docker, license
     )
     initializer.init()
     echo("Application project created")

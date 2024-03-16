@@ -22,7 +22,7 @@ class TestProjectFiles:
             assert "- License" in content
 
     def test_create_gitignore(self, tmp_path):
-        pfiles._create_gitignore(str(tmp_path))
+        pfiles.create_gitignore(str(tmp_path), "test_project")
         gitignore_path = os.path.join(str(tmp_path), ".gitignore")
         assert os.path.isfile(gitignore_path)
         with open(gitignore_path, "r") as gitignore:
@@ -99,11 +99,15 @@ class TestProjectFiles:
             assert 'requires = ["setuptools", "wheel"]\n' in content
             assert 'build-backend = "setuptools.build_meta"\n' in content
 
-    def test_create_base_files(self, tmp_path):
-        pfiles.create_base_files(str(tmp_path), "MIT", True, True, True)
+    def test_create_base_files_setup(self, tmp_path):
+        pfiles.create_base_files(str(tmp_path), "MIT", True)
         assert os.path.isfile(os.path.join(tmp_path, "README.md"))
-        assert os.path.isfile(os.path.join(tmp_path, ".gitignore"))
         assert os.path.isfile(os.path.join(tmp_path, "LICENSE"))
         assert os.path.isfile(os.path.join(tmp_path, "setup.cfg"))
         assert os.path.isfile(os.path.join(tmp_path, "setup.py"))
+    
+    def test_create_base_files_pyproject(self, tmp_path):
+        pfiles.create_base_files(str(tmp_path), "MIT", False)
+        assert os.path.isfile(os.path.join(tmp_path, "README.md"))
+        assert os.path.isfile(os.path.join(tmp_path, "LICENSE"))
         assert os.path.isfile(os.path.join(tmp_path, "pyproject.toml"))

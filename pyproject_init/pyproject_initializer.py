@@ -15,31 +15,27 @@ class PyprojectInitializer:
         project_name,
         project_root,
         project_type,
-        setuppy_needed=False,
-        setupcfg_needed=False,
-        pyproject_needed=False,
+        setup = False,
         git_needed=False,
         virtualenv_needed=False,
         docker_needed=False,
-        license="MIT",
+        license_name="MIT",
     ):
         self.project_name = project_name
-        self.project_root = project_root  # os.getcwd()
+        self.project_root = project_root
         self.project_path = os.path.join(self.project_root, self.project_name)
         self.project_type = project_type
-        self.setuppy = setuppy_needed
-        self.setupcfg = setupcfg_needed
-        self.pyproject = pyproject_needed
+        self.setup = setup
         self.git = git_needed
         self.virtualenv = virtualenv_needed
         self.docker = docker_needed
-        self.license = license
+        self.license_name = license_name
 
     def init(self):
         """
         Initialize the project
         """
-        files.create_base_files(self.project_root, self.license, self.setupcfg, self.setuppy, self.pyproject)
+        files.create_base_files(self.project_root, self.license_name, self.setup)
         if self.project_type == "lib":
             self.create_lib_project()
         elif self.project_type == "app":
@@ -47,6 +43,7 @@ class PyprojectInitializer:
 
         if self.git:
             self.init_git()
+            files.create_gitignore(self.project_root, self.project_name)
 
         if self.virtualenv:
             self.init_virtualenv()
@@ -70,13 +67,13 @@ class PyprojectInitializer:
         """
         Initialize the git repository
         """
-        subprocess.run(["git", "init"], cwd=self.project_root)
+        subprocess.run(["git", "init"], cwd=self.project_root, check=True)
 
     def init_virtualenv(self):
         """
         Initialize the virtual environment
         """
-        subprocess.run(["python3", "-m", "venv", self.project_name + "-env"], cwd=self.project_root)
+        subprocess.run(["python3", "-m", "venv", self.project_name + "-env"], cwd=self.project_root, check=True)
 
     def init_docker(self):
         """

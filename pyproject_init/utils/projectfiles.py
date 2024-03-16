@@ -7,14 +7,12 @@ import requests
 
 
 def create_base_files(
-    project_path, license_type="MIT", setupcfg_needed=False, setuppy_needed=False, pyproject_needed=False
-):
+    project_path, license_type="MIT", setup = False):
     """
     Create the base files for a project.
 
     This function creates the following base files:
     - README.md
-    - .gitignore
     - LICENSE
     - pyproject.toml (optional)
     - setup.cfg (optional)
@@ -25,13 +23,11 @@ def create_base_files(
     """
 
     _create_readme(project_path)
-    _create_gitignore(project_path)
     _create_license(project_path, license_type)
-    if setupcfg_needed:
+    if setup:
         _create_setupcfg(project_path, license_type)
-    if setuppy_needed:
         _create_setuppy(project_path, license_type)
-    if pyproject_needed:
+    else:
         _create_pyproject(project_path)
 
 
@@ -51,7 +47,7 @@ def _create_readme(project_path):
         readme.write("- License\n")
 
 
-def _create_gitignore(project_path):
+def create_gitignore(project_path, project_name):
     """
     _create_gitignore creates the .gitignore file
 
@@ -66,19 +62,22 @@ def _create_gitignore(project_path):
         gitignore.write("# pytest artifacts\n")
         gitignore.write("*.pyc\n")
         gitignore.write("__pycache__/\n")
+        gitignore.write(".pytest_cache/\n")
         gitignore.write("\n")
         gitignore.write("# Coverage\n")
         gitignore.write("htmlcov/\n")
         gitignore.write(".coverage\n")
-        gitignore.write(".pytest_cache/\n")
         gitignore.write("\n")
         gitignore.write("# Distribution\n")
         gitignore.write("build/\n")
         gitignore.write("dist/\n")
         gitignore.write(".eggs/\n")
+        gitignore.write("*.egg-info\n")
         gitignore.write("\n")
         gitignore.write("# Documentation source build\n")
         gitignore.write("doc/_build\n")
+        gitignore.write("# Virtual environment\n")
+        gitignore.write(project_path + project_name + "-env/\n")
 
 
 def _create_license(project_path, license_type="MIT"):
