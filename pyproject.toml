@@ -1,14 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "pyproject_init"
+version = "0.1.0-alpha"
 requires-python = ">=3.9"
 dependencies = [
     "click",
+    "requests",
 ]
 authors = [
     {name = "Quentin Haenn", email = "quentin.haenn.pro@gmail.com"},
 ]
+maintainers = [
+    {name = "Quentin Haenn", email = "quentin.haenn.pro@gmail.com"},
+]
 description = "A tool to initialize a python project with all basic files and configurations"
-readme = "README.md"
+readme = {file = "README.md", content-type = "text/markdown"}
 license = {file = "LICENSE"}
 keywords = ["python project init", "project init", "python project", "project"]
 classifiers = [
@@ -25,6 +34,8 @@ classifiers = [
 [project.urls]
 Repository = "https://github.com/quentinhaenn/pyproject_init"
 
+[project.scripts]
+pyproject-init = "pyproject_init.cli:cli"
 
 [tool.flake8]
 exclude = [
