@@ -1,5 +1,11 @@
 # PYPROJECT_INIT, the python project initializer
 
+<p align="center">
+<a href="https://github.com/quentinhaenn/pyproject_init/blob/main/LICENSE"><img alt="License: MIT" src="https://black.readthedocs.io/en/stable/_static/license.svg"></a>
+<a href="https://pypi.org/project/pyproject-init/"><img alt="PyPI" src="https://img.shields.io/pypi/v/pyproject-init"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
+
 This is a simple python project initializer. It creates any file and directory structure needed for a python project, depending on the options you provide.
 
 ## ROADMAP
@@ -19,7 +25,7 @@ This is a simple python project initializer. It creates any file and directory s
 - [x] test it vanilla
 - [x] Change options setuppy and setupcfg to setup
 - [x] Change options pyproject to make setup a flag. If setup is true, then create setup.py and setup.cfg. If setup is false, then create pyproject.toml
-- [ ] Cut the code into smaller functions if possible
+- [ ] Add usage.md and describe how to use the package with examples. Be exhaustive.
 
 
 ## DESCRIPTION
