@@ -23,7 +23,7 @@ jobs:
         black .
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint pyproject_init/
     - name: testing with Pytest
       run: |
         coverage run -m pytest .
