@@ -42,7 +42,9 @@ exclude = [
     "__init__.py",
     ".pytest_cache",
     ".git",
-    "src/pyprojectinit/test/",
+    "test/",
+    "pyproject-env/",
+    "build/",
     ]
 filename = "*.py"
 count = true
@@ -58,3 +60,7 @@ ignore-paths = [
     "^src/pyprojectinit/test/"
 ]
 max-line-length = 120
+
+[tool.pylint.main]
+max-args = 10
+max-attributes = 10

@@ -7,7 +7,7 @@ from pyproject_init.pyproject_initializer import PyprojectInitializer
 
 class TestPyprojectInitializer:
     def test_init(self, tmp_path):
-        py_test = PyprojectInitializer("test_project", str(tmp_path), "lib",True, True, True, True, "MIT")
+        py_test = PyprojectInitializer("test_project", str(tmp_path), "lib", True, True, True, True, "MIT")
         assert py_test.project_name == "test_project"
         assert py_test.project_root == str(tmp_path)
         assert py_test.project_path == os.path.join(str(tmp_path), "test_project")

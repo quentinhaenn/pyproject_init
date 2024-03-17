@@ -105,7 +105,7 @@ class TestProjectFiles:
         assert os.path.isfile(os.path.join(tmp_path, "LICENSE"))
         assert os.path.isfile(os.path.join(tmp_path, "setup.cfg"))
         assert os.path.isfile(os.path.join(tmp_path, "setup.py"))
-    
+
     def test_create_base_files_pyproject(self, tmp_path):
         pfiles.create_base_files(str(tmp_path), "MIT", False)
         assert os.path.isfile(os.path.join(tmp_path, "README.md"))

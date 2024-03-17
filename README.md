@@ -34,7 +34,7 @@ This is a simple python project initializer. It creates any file and directory s
 - [x] wrap the whole thing in a class
 - [x] simplify entry point
 - [x] add tests
-- [ ] add documentation
+- [x] add documentation
 - [x] add pyproject.toml file
 - [x] wrap the whole thing in a package
 - [x] publish the package on pypi
@@ -42,8 +42,8 @@ This is a simple python project initializer. It creates any file and directory s
 - [x] test it vanilla
 - [x] Change options setuppy and setupcfg to setup
 - [x] Change options pyproject to make setup a flag. If setup is true, then create setup.py and setup.cfg. If setup is false, then create pyproject.toml
-- [ ] Add usage.md and describe how to use the package with examples. Be exhaustive.
-
+- [X] Add usage.md and describe how to use the package with examples. Be exhaustive.
+- [ ] Add CONTRIBUTING.md
 
 ## DESCRIPTION
 

@@ -16,3 +16,6 @@ dist/
 
 # environments
 pyproject-env/
+
+# Coverage
+.coverage

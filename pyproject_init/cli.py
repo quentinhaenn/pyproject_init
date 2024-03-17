@@ -3,22 +3,21 @@ This file provide the cli interface for the pyproject initializer.
 """
 
 from __future__ import absolute_import
+import os
 
 from click import echo
 import click
-import os
 
 from pyproject_init import __version__
 from pyproject_init.pyproject_initializer import PyprojectInitializer
 
 
 @click.group(context_settings={"help_option_names": ("-h", "--help")})
-@click.version_option(__version__, '-V', '--version', message='%(version)s')
+@click.version_option(__version__, "-V", "--version", message="%(version)s")
 def cli():
     """
     Pyproject initializer
     """
-    pass
 
 
 # Commands available :
@@ -38,7 +37,9 @@ def cli():
 
 
 @cli.command()
-@click.option("--setup", is_flag=True, help="If set, create a setup.py and a setup.cfg file, if not creates pyproject.toml")
+@click.option(
+    "--setup", is_flag=True, help="If set, create a setup.py and a setup.cfg file, if not creates pyproject.toml"
+)
 @click.option("--git", is_flag=True, help="Initialize a git repository")
 @click.option("--virtualenv", is_flag=True, help="Create a virtualenv")
 @click.option("--docker", is_flag=True, help="Create a docker file")
@@ -50,17 +51,15 @@ def lib(setup, git, virtualenv, docker, license, project_name):
     """
     echo("Creating a library project")
     project_root = os.getcwd()
-    initializer = PyprojectInitializer(
-        project_name, project_root, "lib", setup, git, virtualenv, docker, license
-    )
+    initializer = PyprojectInitializer(project_name, project_root, "lib", setup, git, virtualenv, docker, license)
     initializer.init()
     echo("Library project created")
 
 
 @cli.command()
-@click.option("--setup",
-              is_flag=True,
-              help="If set, create a setup.py and a setup.cfg file, if not creates pyproject.toml")
+@click.option(
+    "--setup", is_flag=True, help="If set, create a setup.py and a setup.cfg file, if not creates pyproject.toml"
+)
 @click.option("--git", is_flag=True, help="Initialize a git repository")
 @click.option("--virtualenv", is_flag=True, help="Create a virtualenv")
 @click.option("--docker", is_flag=True, help="Create a docker file")
@@ -72,9 +71,7 @@ def app(setup, git, virtualenv, docker, license, project_name):
     """
     echo("Creating an application project")
     project_root = os.getcwd()
-    initializer = PyprojectInitializer(
-        project_name, project_root, "app", setup, git, virtualenv, docker, license
-    )
+    initializer = PyprojectInitializer(project_name, project_root, "app", setup, git, virtualenv, docker, license)
     initializer.init()
     echo("Application project created")
 

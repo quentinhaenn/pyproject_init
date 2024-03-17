@@ -39,5 +39,5 @@ def _create_init_files(project_path, dirs):
     """
     for directory in dirs:
         if directory not in TRAD_DIRS:
-            with open(os.path.join(project_path, directory, "__init__.py"), "w") as init_file:
+            with open(os.path.join(project_path, directory, "__init__.py"), "w", encoding="utf-8"):
                 pass
