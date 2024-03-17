@@ -4,6 +4,8 @@
 <a href="https://github.com/quentinhaenn/pyproject_init/blob/main/LICENSE"><img alt="License: MIT" src="https://black.readthedocs.io/en/stable/_static/license.svg"></a>
 <a href="https://pypi.org/project/pyproject-init/"><img alt="PyPI" src="https://img.shields.io/pypi/v/pyproject-init"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/quentinhaenn/pyproject_init/test_and_lint.yml"</a>
+
 </p>
 
 This is a simple python project initializer. It creates any file and directory structure needed for a python project, depending on the options you provide.
