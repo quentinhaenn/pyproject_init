@@ -8,6 +8,21 @@
 
 This is a simple python project initializer. It creates any file and directory structure needed for a python project, depending on the options you provide.
 
+## TABLE OF CONTENTS
+
+- [PYPROJECT\_INIT, the python project initializer](#pyproject_init-the-python-project-initializer)
+  - [TABLE OF CONTENTS](#table-of-contents)
+  - [ROADMAP](#roadmap)
+  - [DESCRIPTION](#description)
+  - [INSTALLATION](#installation)
+  - [USAGE](#usage)
+    - [EXAMPLES](#examples)
+      - [Creating a simple lib without any options](#creating-a-simple-lib-without-any-options)
+      - [More examples](#more-examples)
+  - [CONTRIBUTING](#contributing)
+  - [LICENSE](#license)
+  - [AUTHOR](#author)
+
 ## ROADMAP
 
 - [x] add function for creating the chosen license file
@@ -67,66 +82,31 @@ pyproject-init lib --help
 pyproject-init app --help
 ```
 
-## EXAMPLES
+### EXAMPLES
 
-Here are some examples of how to use the package.
-
-### Create a simple python package
+#### Creating a simple lib without any options
 
 ```bash
 pyproject-init lib my_package
 ```
 
-This will create a directory structure and files for a simple python package. The directory structure will look like this:
+This yields the following directory structure:
 
 ```bash
 my_package/
-    my_package/
-        __init__.py
-    tests/
-        __init__.py
-        test_my_package.py
-    LICENSE
-    .gitignore
-    README.md
-    pyproject.toml
-    setup.cfg
-    setup.py
+├── LICENSE
+├── README.md
+├── pyproject.toml
+└── test
+    ├── docs
+    ├── src
+    │   └── __init__.py
+    └── tests
 ```
 
-### Create a python package with git initialized
+#### More examples
 
-This command line will create a simple python package and initialize a git repository in the directory.
-
-```bash
-pyproject-init lib my_package --git
-```
-
-### Create a python package with a Dockerfile
-
-This command line will create a simple python package and a Dockerfile in the directory.
-
-```bash
-pyproject-init lib my_package --docker
-```
-
-### Create a python package with a different license
-
-This command line will create a simple python package with a different license. The license must be available on the [choosealicense.com](https://choosealicense.com) website.
-
-```bash
-pyproject-init lib my_package --license gpl-3.0
-```
-
-### Create a python package with pyproject.toml
-
-This command line will create a simple python package with a `pyproject.toml` file instead of the `setup.cfg` and `setup.py` files.
-
-```bash
-pyproject-init lib my_package --pyproject
-```
-
-### Create a python package with
+Please refer to the [USAGE.md](./USAGE.md) file for more examples.
 
 ## CONTRIBUTING
 
