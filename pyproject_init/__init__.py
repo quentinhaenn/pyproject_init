@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__title__ = "pyprojectinit"
+"""
+Pyproject_init is a simple tool to initialize a new python project.
+"""
+
+__title__ = "pyproject_init"
 __version__ = "1.1.0"
 __author__ = "Quentin Haenn"
 __license__ = "MIT"

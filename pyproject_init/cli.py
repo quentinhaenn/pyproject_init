@@ -43,15 +43,15 @@ def cli():
 @click.option("--git", is_flag=True, help="Initialize a git repository")
 @click.option("--virtualenv", is_flag=True, help="Create a virtualenv")
 @click.option("--docker", is_flag=True, help="Create a docker file")
-@click.option("--license", default="MIT", help="Choose the license type")
+@click.option("--license", "license_name", default="MIT", help="Choose the license type")
 @click.argument("project_name", required=True)
-def lib(setup, git, virtualenv, docker, license, project_name):
+def lib(setup, git, virtualenv, docker, license_name, project_name):
     """
     Create a library project
     """
     echo("Creating a library project")
     project_root = os.getcwd()
-    initializer = PyprojectInitializer(project_name, project_root, "lib", setup, git, virtualenv, docker, license)
+    initializer = PyprojectInitializer(project_name, project_root, "lib", setup, git, virtualenv, docker, license_name)
     initializer.init()
     echo("Library project created")
 
@@ -63,15 +63,15 @@ def lib(setup, git, virtualenv, docker, license, project_name):
 @click.option("--git", is_flag=True, help="Initialize a git repository")
 @click.option("--virtualenv", is_flag=True, help="Create a virtualenv")
 @click.option("--docker", is_flag=True, help="Create a docker file")
-@click.option("--license", default="MIT", help="Choose the license type")
+@click.option("--license","license_name", default="MIT", help="Choose the license type")
 @click.argument("project_name", required=True)
-def app(setup, git, virtualenv, docker, license, project_name):
+def app(setup, git, virtualenv, docker, license_name, project_name):
     """
     Create an application project
     """
     echo("Creating an application project")
     project_root = os.getcwd()
-    initializer = PyprojectInitializer(project_name, project_root, "app", setup, git, virtualenv, docker, license)
+    initializer = PyprojectInitializer(project_name, project_root, "app", setup, git, virtualenv, docker, license_name)
     initializer.init()
     echo("Application project created")
 
